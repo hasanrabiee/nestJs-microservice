@@ -1,0 +1,55 @@
+services:
+  reservations:
+    build:
+      context: .
+      dockerfile: ./apps/reservations/Dockerfile
+      target: development
+    command: yarn start:dev reservations
+    env_file:
+      - ./apps/reservations/.env
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: yarn start:dev auth
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - ./apps/auth/.env
+
+  payments:
+    build:
+      context: .
+      dockerfile: ./apps/payments/Dockerfile
+      target: development
+    command: yarn start:dev payments
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - ./apps/payments/.env
+
+  notifications:
+    build:
+      context: .
+      dockerfile: ./apps/notification/Dockerfile
+      target: development
+    command: yarn start:dev notification
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - ./apps/notification/.env
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
