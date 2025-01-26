@@ -49,7 +49,7 @@ steps:
     args:
       [
         'push',
-        'europe-central2-docker.pkg.dev/sleepr-448909/notification/production',
+        'europe-central2-docker.pkg.dev/sleepr-448909/notifications/production',
       ]
 
   # Payments
