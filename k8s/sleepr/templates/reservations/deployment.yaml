@@ -15,7 +15,7 @@ spec:
         app: reservations
     spec:
       containers:
-        - image: europe-central2-docker.pkg.dev/sleepr-448909/reservations/production
+        - image: europe-central2-docker.pkg.dev/sleepr-448909/reservations/production:latest
           name: reservations
       imagePullSecrets:
-        - name: grc-json-key
+        - name: gcr-json-key
